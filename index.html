@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>LeON</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./css/general.css">
+        <script type="text/javascript" src="./js/exile.loader.js"></script>
+        <script type="text/javascript">
+            (function () {
+                window.onload =  function () {
+                    var s1 = document.querySelector('.s1');
+                    var s2 = document.querySelector('.s2');
+                    var s3 = document.querySelector('.s3');
+                    var s4 = document.querySelector('.s4');
+                    load(s1, 500, 0, function (n) {
+                        load(s2, 300, n, function (n) {
+                            load(s3, 300, n, function (n) {
+                                load(s4, 300, n);
+                            });
+                        });
+                    });
+
+                };
+            })();
+            function load(contex, sleep, num, cb) {
+                setTimeout(function(){
+                    contex.classList.add('s0');
+                    setTimeout(function(){
+                        var aux = num + Math.floor((Math.random() * 25) + 1);
+                        init_transition(aux);
+                        if(cb){
+                            cb(aux);
+                        }
+                    }, 1000);
+                }, sleep);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="frame">
+            <div class="bar">
+                <div class="box"></div>
+                <div class="box flex">
+                    <div class="img user"></div>
+                </div>
+                <div class="box"></div>
+            </div>
+            <div class="content flex">
+                <div class="contador">
+                    <div class="title">Today</div>
+                    <div class="contadorContent flex" >
+                        <div class="back"><a href="#"><</a></div>
+                        <div class="contadorMain flex">
+                            <div class="loader">
+                        		<div class="percent">
+                        			<span class="num">0</span>
+                        		</div>
+                        		<div class="load-gray1"></div>
+                        		<div class="load stage stage1"></div>
+                        		<div class="load stage stage2"></div>
+                        		<div class="load stage stage3"></div>
+                        		<div class="load stage stage4"></div>
+                        		<div class="load stage stage5"></div>
+                        		<div class="load stage stage6"></div>
+                        		<div class="load-hidder"></div>
+                        		<div class="load load-gray2"></div>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stacks flex">
+                    <ul>
+                        <li class="s s1">
+                            <div class="textStack flex">7,015</div>
+                            <div class="iconStack img i1"></div>
+                        </li>
+                        <li class="s s2">
+                            <div class="textStack flex">6:04 hrs</div>
+                            <div class="iconStack img i2"></div>
+                        </li>
+                        <li class="s s3">
+                            <div class="textStack flex">45m  617cal</div>
+                            <div class="iconStack img i3"></div>
+                        </li>
+                        <li class="s s4">
+                            <div class="textStack flex">1,325 cal</div>
+                            <div class="iconStack img i4"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
